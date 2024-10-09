@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct  9 18:30:17 2024" VIVADOVERSION="2023.1">
+
+  <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="w_0" SIGIS="undef" SIGNAME="External_Ports_w_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rtl_demo_0" PORT="w"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="z_0" SIGIS="undef" SIGNAME="rtl_demo_0_z">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rtl_demo_0" PORT="z"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="state_0" RIGHT="0" SIGIS="undef" SIGNAME="rtl_demo_0_state">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rtl_demo_0" PORT="state"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="next_state_0" RIGHT="0" SIGIS="undef" SIGNAME="rtl_demo_0_next_state">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rtl_demo_0" PORT="next_state"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_0" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="downscaler_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset_0" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_reset_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="downscaler_0" PORT="reset"/>
+        <CONNECTION INSTANCE="rtl_demo_0" PORT="rst"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/downscaler_0" HWVERSION="1.0" INSTANCE="downscaler_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="downscaler" VLNV="xilinx.com:module_ref:downscaler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_downscaler_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_reset_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="upcount" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" NAME="clk_div" SIGIS="undef" SIGNAME="downscaler_0_clk_div">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rtl_demo_0" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/rtl_demo_0" HWVERSION="1.0" INSTANCE="rtl_demo_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="rtl_demo" VLNV="xilinx.com:module_ref:rtl_demo:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="A" VALUE="&quot;00&quot;"/>
+        <PARAMETER NAME="B" VALUE="&quot;01&quot;"/>
+        <PARAMETER NAME="C" VALUE="&quot;10&quot;"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_rtl_demo_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_reset_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="downscaler_0_clk_div">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="downscaler_0" PORT="clk_div"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="w" SIGIS="undef" SIGNAME="External_Ports_w_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="w_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="z" SIGIS="undef" SIGNAME="rtl_demo_0_z">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="z_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="state" RIGHT="0" SIGIS="undef" SIGNAME="rtl_demo_0_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="state_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="next_state" RIGHT="0" SIGIS="undef" SIGNAME="rtl_demo_0_next_state">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="next_state_0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>
